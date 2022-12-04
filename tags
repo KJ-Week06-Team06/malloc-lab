@@ -3,60 +3,60 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.8	//
-ALIGN	mm.c	/^#define ALIGN(/;"	d	file:
-ALIGNMENT	config.h	/^#define ALIGNMENT /;"	d
-ALIGNMENT	mm.c	/^#define ALIGNMENT /;"	d	file:
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALIGN	mm.c	65;"	d	file:
+ALIGNMENT	config.h	58;"	d
+ALIGNMENT	mm.c	62;"	d	file:
 ALLOC	mdriver.c	/^    enum {ALLOC, FREE, REALLOC} type; \/* type of request *\/$/;"	e	enum:__anon1::__anon2	file:
-AVG_LIBC_THRUPUT	config.h	/^#define AVG_LIBC_THRUPUT /;"	d
-CACHE_BLOCK	fcyc.c	/^#define CACHE_BLOCK /;"	d	file:
-CACHE_BYTES	fcyc.c	/^#define CACHE_BYTES /;"	d	file:
+AVG_LIBC_THRUPUT	config.h	46;"	d
+CACHE_BLOCK	fcyc.c	24;"	d	file:
+CACHE_BYTES	fcyc.c	23;"	d	file:
 CC	Makefile	/^CC = gcc$/;"	m
-CFLAGS	Makefile	/^CFLAGS = -Wall -O2 -m32$/;"	m
-CHUNKSIZE	mm.h	/^#define CHUNKSIZE	/;"	d
-CLEAR_CACHE	fcyc.c	/^#define CLEAR_CACHE /;"	d	file:
-COMPENSATE	fcyc.c	/^#define COMPENSATE /;"	d	file:
-DEFAULT_TRACEFILES	config.h	/^#define DEFAULT_TRACEFILES /;"	d
-DSIZE	mm.h	/^#define DSIZE	/;"	d
-EPSILON	fcyc.c	/^#define EPSILON /;"	d	file:
+CFLAGS	Makefile	/^CFLAGS = -Wall -O2 -m32 -g -fsanitize=address$/;"	m
+CHUNKSIZE	mm.c	23;"	d	file:
+CLEAR_CACHE	fcyc.c	22;"	d	file:
+COMPENSATE	fcyc.c	21;"	d	file:
+DEFAULT_TRACEFILES	config.h	24;"	d
+DSIZE	mm.c	22;"	d	file:
+EPSILON	fcyc.c	20;"	d	file:
 FREE	mdriver.c	/^    enum {ALLOC, FREE, REALLOC} type; \/* type of request *\/$/;"	e	enum:__anon1::__anon2	file:
-FTRP	mm.h	/^#define FTRP(/;"	d
-GET	mm.h	/^#define GET(/;"	d
-GET_ALLOC	mm.h	/^#define GET_ALLOC(/;"	d
-GET_SIZE	mm.h	/^#define GET_SIZE(/;"	d
+FTRP	mm.c	37;"	d	file:
+GET	mm.c	30;"	d	file:
+GET_ALLOC	mm.c	34;"	d	file:
+GET_SIZE	mm.c	33;"	d	file:
 HANDINDIR	Makefile	/^HANDINDIR = \/afs\/cs.cmu.edu\/academic\/class\/15213-f01\/malloclab\/handin$/;"	m
-HDRLINES	mdriver.c	/^#define HDRLINES /;"	d	file:
-HDRP	mm.h	/^#define HDRP(/;"	d
-IS_ALIGNED	mdriver.c	/^#define IS_ALIGNED(/;"	d	file:
-K	fcyc.c	/^#define K /;"	d	file:
-KEEP_SAMPLES	fcyc.c	/^#define KEEP_SAMPLES /;"	d	file:
-KEEP_VALS	fcyc.c	/^#define KEEP_VALS /;"	d	file:
-LINENUM	mdriver.c	/^#define LINENUM(/;"	d	file:
-MAX	mm.h	/^#define MAX(/;"	d
-MAXLINE	mdriver.c	/^#define MAXLINE /;"	d	file:
-MAXSAMPLES	fcyc.c	/^#define MAXSAMPLES /;"	d	file:
-MAX_ETIME	ftimer.c	/^#define MAX_ETIME /;"	d	file:
-MAX_HEAP	config.h	/^#define MAX_HEAP /;"	d
+HDRLINES	mdriver.c	30;"	d	file:
+HDRP	mm.c	36;"	d	file:
+IS_ALIGNED	mdriver.c	34;"	d	file:
+K	fcyc.c	18;"	d	file:
+KEEP_SAMPLES	fcyc.c	41;"	d	file:
+KEEP_VALS	fcyc.c	40;"	d	file:
+LINENUM	mdriver.c	31;"	d	file:
+MAX	mm.c	25;"	d	file:
+MAXLINE	mdriver.c	29;"	d	file:
+MAXSAMPLES	fcyc.c	19;"	d	file:
+MAX_ETIME	ftimer.c	61;"	d	file:
+MAX_HEAP	config.h	63;"	d
 Mhz	fsecs.c	/^static double Mhz;  \/* estimated CPU clock frequency *\/$/;"	v	file:
-NEVENT	clock.c	/^#define NEVENT /;"	d	file:
-NEXT_BLKP	mm.h	/^#define NEXT_BLKP(/;"	d
+NEVENT	clock.c	208;"	d	file:
+NEXT_BLKP	mm.c	39;"	d	file:
 OBJS	Makefile	/^OBJS = mdriver.o mm.o memlib.o fsecs.o fcyc.o clock.o ftimer.o$/;"	m
-PACK	mm.h	/^#define PACK(/;"	d
-PREV_BLKP	mm.h	/^#define PREV_BLKP(/;"	d
-PUT	mm.h	/^#define PUT(/;"	d
+PACK	mm.c	28;"	d	file:
+PREV_BLKP	mm.c	40;"	d	file:
+PUT	mm.c	31;"	d	file:
 REALLOC	mdriver.c	/^    enum {ALLOC, FREE, REALLOC} type; \/* type of request *\/$/;"	e	enum:__anon1::__anon2	file:
-RECORDTHRESH	clock.c	/^#define RECORDTHRESH /;"	d	file:
-SIZE_T_SIZE	mm.c	/^#define SIZE_T_SIZE /;"	d	file:
+RECORDTHRESH	clock.c	210;"	d	file:
+SIZE_T_SIZE	mm.c	68;"	d	file:
 TEAM	Makefile	/^TEAM = bovik$/;"	m
-THRESHOLD	clock.c	/^#define THRESHOLD /;"	d	file:
-TRACEDIR	config.h	/^#define TRACEDIR /;"	d
-USE_FCYC	config.h	/^#define USE_FCYC /;"	d
-USE_GETTOD	config.h	/^#define USE_GETTOD /;"	d
-USE_ITIMER	config.h	/^#define USE_ITIMER /;"	d
-UTIL_WEIGHT	config.h	/^#define UTIL_WEIGHT /;"	d
+THRESHOLD	clock.c	209;"	d	file:
+TRACEDIR	config.h	15;"	d
+USE_FCYC	config.h	68;"	d
+USE_GETTOD	config.h	70;"	d
+USE_ITIMER	config.h	69;"	d
+UTIL_WEIGHT	config.h	53;"	d
 VERSION	Makefile	/^VERSION = 1$/;"	m
-WSIZE	mm.h	/^#define WSIZE	/;"	d
-__CONFIG_H_	config.h	/^#define __CONFIG_H_$/;"	d
+WSIZE	mm.c	21;"	d	file:
+__CONFIG_H_	config.h	2;"	d
 access_counter	clock.c	/^void access_counter(unsigned *hi, unsigned *lo)$/;"	f
 add_range	mdriver.c	/^static int add_range(range_t **ranges, char *lo, int size, $/;"	f	file:
 add_sample	fcyc.c	/^static void add_sample(double val)$/;"	f	file:
@@ -85,7 +85,7 @@ eval_libc_valid	mdriver.c	/^static int eval_libc_valid(trace_t *trace, int trace
 eval_mm_speed	mdriver.c	/^static void eval_mm_speed(void *ptr)$/;"	f	file:
 eval_mm_util	mdriver.c	/^static double eval_mm_util(trace_t *trace, int tracenum, range_t **ranges)$/;"	f	file:
 eval_mm_valid	mdriver.c	/^static int eval_mm_valid(trace_t *trace, int tracenum, range_t **ranges) $/;"	f	file:
-extend_heap	mm.c	/^static void	*extend_heap(size_t word)$/;"	f	file:
+extend_heap	mm.c	/^static void	*extend_heap(size_t words)$/;"	f	file:
 fcyc	fcyc.c	/^double fcyc(test_funct f, void *argp)$/;"	f
 find_fit	mm.c	/^static void	*find_fit(size_t asize)$/;"	f	file:
 first_p	ftimer.c	/^static struct itimerval first_p; \/* prof time*\/$/;"	v	typeref:struct:itimerval	file:
@@ -102,7 +102,7 @@ get_counter	clock.c	/^double get_counter() $/;"	f
 get_counter	clock.c	/^double get_counter()$/;"	f
 get_etime	ftimer.c	/^static double get_etime(void) {$/;"	f	file:
 has_converged	fcyc.c	/^static int has_converged()$/;"	f	file:
-heap_listp	mm.h	/^static char *heap_listp;	\/\/처음에 쓸 큰 가용 블록 힙을 생성.$/;"	v
+heap_listp	mm.c	/^static char *heap_listp;        \/\/처음에 쓸 큰 가용 블록 힙을 생성.$/;"	v	file:
 hi	mdriver.c	/^    char *hi;              \/* high payload address *\/$/;"	m	struct:range_t	file:
 id1	mm.h	/^    char *id1;      \/* login ID of first member *\/$/;"	m	struct:__anon6
 id2	mm.h	/^    char *id2;      \/* login ID of second member *\/$/;"	m	struct:__anon6
