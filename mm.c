@@ -79,34 +79,36 @@ static void *coalesce(void *bp)
 	return (bp);
 }
 
+//힙 확장.
 static void	*extend_heap(size_t word)
 {
 	char	*bp;
 	size_t	size;
 
-	size = (word%2) ? (word+1) * WSIZE : word * WSIZE;
-	if ((long)(bp = mem_sbrk(size)) == -1)
-		return (NULL);
+	size = (word%2) ? (word+1) * WSIZE : word * WSIZE;	//2의 배수로 size를 증가시킨다. 홀수면 1을 증가시키고 word 만큼, 짝수면 그냥 word만큼.
+	if ((long)(bp = mem_sbrk(size)) == -1)		//sbrk로 size를 증가시킨다. 
+		return (NULL);							// size 증가시 old_brk위치는 과거의 mem_brk위치로 이동하게됨.
 
-	PUT(HDRP(bp), PACK(size, 0));
-	PUT(FTRP(bp), PACK(size, 0));
-	PUT(HDRP(NEXT_BLKP(bp)), PACK(0, 1));
+	PUT(HDRP(bp), PACK(size, 0));				//free block header 생성.
+	PUT(FTRP(bp), PACK(size, 0));				//free block footer
+	PUT(HDRP(NEXT_BLKP(bp)), PACK(0, 1));		//epilogue header의 위치를 조정해줌.
 
-	return (coalesce(bp));
+	return (coalesce(bp));						//coalesce를 진행.
 }
 
+/* 맨 처음에 힙을 생성. 0부터 시작한다. */
 int mm_init(void)
 {
-	if ((heap_listp = mem_sbrk(4 * WSIZE)) == (void *)-1)
+	if ((heap_listp = mem_sbrk(4 * WSIZE)) == (void *)-1) //초기 brk에서 4만큼 늘려 mem brk를 늘려준다.
 		return (-1);
-	PUT(heap_listp, 0);
-	PUT(heap_listp + (1 * WSIZE), PACK(DSIZE, 1));
-	PUT(heap_listp + (2 * WSIZE), PACK(DSIZE, 1));
-	PUT(heap_listp + (3 * WSIZE), PACK(0, 1));
-	heap_listp += (2 * WSIZE);
+	PUT(heap_listp, 0);		//블록 생성시 padding을 한 워드만큼 생성. heap_listp의 위치는 맨 처음에 있다.
+	PUT(heap_listp + (1 * WSIZE), PACK(DSIZE, 1));	//prologue header. DSIZE(double word size)만큼 할당을 진행한다.
+	PUT(heap_listp + (2 * WSIZE), PACK(DSIZE, 1));	//prologue footer.
+	PUT(heap_listp + (3 * WSIZE), PACK(0, 1));		//epilogue block header. 뒤로 밀리게 된다.
+	heap_listp += (2 * WSIZE);						//포인터 위치 변경. header와 footer 사이로 가며, header 뒤에 위치하게 된다.
 
-	if (extend_heap(CHUNKSIZE / WSIZE) == NULL)
-		return -1;
+	if (extend_heap(CHUNKSIZE / WSIZE) == NULL)		//시작시 heap을 한번 늘려준다.
+		return (-1);
     return 0;
 }
 
