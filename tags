@@ -12,7 +12,7 @@ AVG_LIBC_THRUPUT	config.h	46;"	d
 CACHE_BLOCK	fcyc.c	24;"	d	file:
 CACHE_BYTES	fcyc.c	23;"	d	file:
 CC	Makefile	/^CC = gcc$/;"	m
-CFLAGS	Makefile	/^CFLAGS = -Wall -O2 -m32 -g -fsanitize=address$/;"	m
+CFLAGS	Makefile	/^CFLAGS = -Wall -O2 -m32$/;"	m
 CHUNKSIZE	mm.c	23;"	d	file:
 CLEAR_CACHE	fcyc.c	22;"	d	file:
 COMPENSATE	fcyc.c	21;"	d	file:
@@ -87,7 +87,6 @@ eval_mm_util	mdriver.c	/^static double eval_mm_util(trace_t *trace, int tracenum
 eval_mm_valid	mdriver.c	/^static int eval_mm_valid(trace_t *trace, int tracenum, range_t **ranges) $/;"	f	file:
 extend_heap	mm.c	/^static void	*extend_heap(size_t words)$/;"	f	file:
 fcyc	fcyc.c	/^double fcyc(test_funct f, void *argp)$/;"	f
-find_fit	mm.c	/^static void	*find_fit(size_t asize)$/;"	f	file:
 first_p	ftimer.c	/^static struct itimerval first_p; \/* prof time*\/$/;"	v	typeref:struct:itimerval	file:
 first_r	ftimer.c	/^static struct itimerval first_r; \/* real time *\/$/;"	v	typeref:struct:itimerval	file:
 first_u	ftimer.c	/^static struct itimerval first_u; \/* user time *\/$/;"	v	typeref:struct:itimerval	file:
@@ -111,6 +110,7 @@ init_etime	ftimer.c	/^static void init_etime(void)$/;"	f	file:
 init_fsecs	fsecs.c	/^void init_fsecs(void)$/;"	f
 init_sampler	fcyc.c	/^static void init_sampler()$/;"	f	file:
 kbest	fcyc.c	/^static int kbest = K;$/;"	v	file:
+last_bp	mm.c	/^static char *last_bp;$/;"	v	file:
 lo	mdriver.c	/^    char *lo;              \/* low payload address *\/$/;"	m	struct:range_t	file:
 main	mdriver.c	/^int main(int argc, char **argv)$/;"	f
 malloc_error	mdriver.c	/^void malloc_error(int tracenum, int opnum, char *msg)$/;"	f
@@ -136,6 +136,7 @@ msg	mdriver.c	/^char msg[MAXLINE];      \/* for whenever we need to compose an e
 name1	mm.h	/^    char *name1;    \/* full name of first member *\/$/;"	m	struct:__anon6
 name2	mm.h	/^    char *name2;    \/* full name of second member (if any) *\/$/;"	m	struct:__anon6
 next	mdriver.c	/^    struct range_t *next;  \/* next list element *\/$/;"	m	struct:range_t	typeref:struct:range_t::range_t	file:
+next_fit	mm.c	/^static void	*next_fit(size_t asize)$/;"	f	file:
 num_ids	mdriver.c	/^    int num_ids;         \/* number of alloc\/realloc ids *\/$/;"	m	struct:__anon3	file:
 num_ops	mdriver.c	/^    int num_ops;         \/* number of distinct requests *\/$/;"	m	struct:__anon3	file:
 ops	mdriver.c	/^    double ops;      \/* number of ops (malloc\/free\/realloc) in the trace *\/$/;"	m	struct:__anon5	file:
