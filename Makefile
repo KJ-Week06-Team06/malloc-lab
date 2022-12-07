@@ -27,4 +27,4 @@ handin:
 clean:
 	rm -f *~ *.o mdriver
 
-
+re: clean mdriver
