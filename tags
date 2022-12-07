@@ -70,7 +70,7 @@ callibrate	clock.c	/^static void callibrate(int verbose)$/;"	f	file:
 clear	fcyc.c	/^static void clear()$/;"	f	file:
 clear_cache	fcyc.c	/^static int clear_cache = CLEAR_CACHE;$/;"	v	file:
 clear_ranges	mdriver.c	/^static void clear_ranges(range_t **ranges)$/;"	f	file:
-coalesce	mm.c	/^static void *coalesce(void *bp)$/;"	f	file:
+coalesce	mm.c	/^static void *coalesce(void *bp)								\/\/ 블록간의 연결$/;"	f	file:
 compensate	fcyc.c	/^static int compensate = COMPENSATE;$/;"	v	file:
 counter	clock.c	/^static unsigned int (*counter)(void)= (void *)counterRoutine;$/;"	v	file:
 counterRoutine	clock.c	/^static unsigned int counterRoutine[] =$/;"	v	file:

@@ -71,31 +71,31 @@ team_t team = {
  * mm_init - initialize the malloc package.
  */
 
-static void *coalesce(void *bp)
+static void *coalesce(void *bp)								// 블록간의 연결
 {
 	size_t prev_alloc = GET_ALLOC(FTRP(PREV_BLKP(bp)));
 	size_t next_alloc = GET_ALLOC(HDRP(NEXT_BLKP(bp)));
 	size_t size = GET_SIZE(HDRP(bp));
 
-	if (prev_alloc && next_alloc)
+	if (prev_alloc && next_alloc)							// 이전과 다음 블록 모두 할당된 경우. 할당에서 가용으로 변경.
 	{
 		last_bp = bp;
 		return bp;
 	}
-	else if (prev_alloc && !next_alloc)
+	else if (prev_alloc && !next_alloc)						//이전 블록은 할당상태. 다음 블록 가용 상태. 현재 블록을 다음 블록과 통합.
 	{
 		size += GET_SIZE(HDRP(NEXT_BLKP(bp)));
 		PUT(HDRP(bp), PACK(size, 0));
 		PUT(FTRP(bp), PACK(size, 0));
 	}
-	else if (!prev_alloc && next_alloc)
+	else if (!prev_alloc && next_alloc)						// 이전 블록은 가용상태. 다음 블록 할당상태. 이전 블록을 현재 블록과 통합.
 	{
 		size += GET_SIZE(HDRP(PREV_BLKP(bp)));
 		PUT(FTRP(bp), PACK(size, 0));
 		PUT(HDRP(PREV_BLKP(bp)), PACK(size, 0));
 		bp = PREV_BLKP(bp);
 	}
-	else
+	else													// 블록 모두 가용상태. 이전, 현재, 다음 블록 모두 가용 블록 통합.
 	{
 		size += GET_SIZE(HDRP(PREV_BLKP(bp))) + GET_SIZE(FTRP(NEXT_BLKP(bp)));
 		PUT(HDRP(PREV_BLKP(bp)), PACK(size, 0));
@@ -133,10 +133,9 @@ int mm_init(void)
 	PUT(heap_listp + (2 * WSIZE), PACK(DSIZE, 1));	//prologue footer.
 	PUT(heap_listp + (3 * WSIZE), PACK(0, 1));		//epilogue block header. 뒤로 밀리게 된다.
 	heap_listp += (2 * WSIZE);						//포인터 위치 변경. header와 footer 사이로 가며, header 뒤에 위치하게 된다.
-													//
 	if (extend_heap(CHUNKSIZE / WSIZE) == NULL)		//시작시 heap을 한번 늘려준다.
 		return (-1);
-	last_bp = (char *)heap_listp;
+	last_bp = (char *)heap_listp;					//늘려준 heap_list의 주소를 last_bp에 넣어줌. 
     return 0;
 }
 
@@ -155,8 +154,8 @@ static void	*find_fit(size_t asize)
 			return bp;
 	}
 	return NULL;
-}*/
-
+}
+*/
 static void	*next_fit(size_t asize)
 {
 	char *bp = last_bp;
@@ -213,7 +212,7 @@ void *mm_malloc(size_t size)
 		asize = 2 * DSIZE;
 	else
 		asize = DSIZE * ((size + (DSIZE) + (DSIZE - 1)) / DSIZE);
-	// if ((bp = find_fit(asize)) != NULL)
+	//if ((bp = find_fit(asize)) != NULL)
 	if ((bp = next_fit(asize)) != NULL)
 	{
 		place(bp, asize);
@@ -224,7 +223,7 @@ void *mm_malloc(size_t size)
 	if ((bp = extend_heap(extendsize / WSIZE)) == NULL)
 		return NULL;
 	place(bp, asize);
-	last_bp = bp;
+	//last_bp = bp;
 	return (bp);
 }
 
